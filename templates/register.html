@@ -23,23 +23,20 @@
         <h1>Sign up</h1>
         <div class="container">
             <div class="sign-up-content">
-                <form method="POST" action="#" class="signup-form">
-                    <h2 class="form-title">What type of user are you ?</h2>
-
-
+                <form method="POST" action="#" class="signup-form">{% csrf_token %}
                     <div class="form-textbox">
-                        <label for="name">Username</label>
-                        <input type="text" name="username" id="username" required/>
+                        <label for="name">Firstname</label>
+                        <input type="text" name="firstname" id="firstname" required/>
                     </div>
 
                     <div class="form-textbox">
-                      <label for="name">Fullname</label>
-                      <input type="text" name="fullname" id="fullname" required/>
+                      <label for="name">Lastname</label>
+                      <input type="text" name="lastname" id="lastname" required/>
                     </div>
 
                     <div class="form-textbox">
-                        <label for="name">Location</label>
-                        <input type="text" name="location" id="location" required/>
+                        <label for="name">Telephone</label>
+                        <input type="text" name="telephone" id="telephone" required/>
                     </div>
 
 
@@ -49,14 +46,14 @@
                         <input type="email" name="email" id="email" required/>
                     </div>
 
-                    <div class="form-textbox">
+                    <!--<div class="form-textbox">
                     <label for="birthday">Birthday</label>
                       <input type="date" id="birthday" name="birthday">
                     </div>
-
+                    -->
                     <div class="form-textbox">
                         <label for="pass">Password</label>
-                        <input type="password" name="pass" id="pass" required />
+                        <input type="password" name="password" id="password" required />
                     </div>
 
                     <div class="form-textbox">

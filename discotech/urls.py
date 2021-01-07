@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from .views import mainpage, login, register, proionta, transaction, twofa
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('register', register),
+    path('proionta', proionta),
+    path('transaction', transaction),
+    path('login', login),
+    path('2fa', twofa),
+    path('', mainpage)
+
 ]

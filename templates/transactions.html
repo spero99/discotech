@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+{% csrf_token %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transactions</title>
+</head>
+<body>
+<tb>
+    <tr>
+        <th>firstname</th>
+        <th>lastname</th>
+        <th>email</th>
+        <th>telephone</th>
+        <th>prod_id</th>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>{{ user.firstname }}</td>
+        <td>{{ user.lastname }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.telephone }}</td>
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.brand }}</td>
+        <td>{{ product.price }}</td>
+    </tr>
+</tb>
+<form method="POST">
+
+    <input type="text" name="cardnumber" id="cardnumber" placeholder="cardnumber"></br>
+    <input type="text" name="cardcode" id="cardcode" placeholder="cardcode"></br>
+    </form>
+    <input type="submit" name="Purchase" id="purchase"  value="purchase">
+
+
+  </form>
+</body>
+</html>

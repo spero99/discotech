@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% csrf_token %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proionta</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Price</th>
+    </tr>
+
+    {% for product in products %}
+        <tr>
+            <td>{{ products.Id }}</td>
+            <td>{{ products.name }}</td>
+            <td>{{ products.brand }}</td>
+            <td>{{ products.price }}</td>
+        </tr>
+        <button id={{ products.id }}>Buy</button>
+        <!-- <button id={{ products.id }}>Buy</button>-->
+        {% endfor %}
+</table>
+
+</body>
+</html>
