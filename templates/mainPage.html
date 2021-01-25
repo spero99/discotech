@@ -6,7 +6,12 @@
 
 </head>
 <body>
-<h1>hello maria</h1>
+<h1>Welcome to the Discotech store</h1>
+<form method ="POST">
+{% csrf_token %}
+    <input type="submit" name="Log in"  placeholder="cardnumber"></br>
+    <input type="text" name="cardcode" id="cardcode" placeholder="cardcode"></br>
+</form>
 
 </body>
 </html>

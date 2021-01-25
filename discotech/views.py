@@ -47,7 +47,7 @@ def login(request):
     else:
         return render(request, "login.html")
 
-
+# handles the procedure for the creation of a new user
 def register(request):
     if request.method == 'POST':
         firstname = request.POST.get('firstname')
@@ -73,13 +73,13 @@ def register(request):
         return TemplateResponse(request, 'register.html', arguments)
 
 
-
+#
 def proionta(request):
     result = products.objects.all()
     if request.method == 'POST':
-        if request.POST.get('buy') == '001':
+        if request.method == 'POST' and "001":
             request.session['prod_id'] = '001'
-        elif request.POST.get('buy') == '002':
+        elif request.method == 'POST' and '002':
             request.session['prod_id'] = '002'
         else:
             request.session['prod_id'] = '003'
@@ -119,6 +119,66 @@ def transaction(request):
             arguments['mnm'] = "Sorry there was an error"
             return TemplateResponse(request, 'transactions.html.html', arguments)
     return render(request, "transactions.html", {'products': product, 'users': user})
+
+def transaction2(request):
+    #building purposes
+    #email = request.session.get('email')
+    prod_id = request.session.get('prod_id')
+    email = 'sperako948@gmail.com'
+    prod_id = '002'
+    #transaction code
+    user = users.objects.filter(email=email)
+    product = products.objects.filter(id=prod_id)
+
+    if request.method == 'POST':
+        cardnumber = request.POST.get('cardnumber')
+        cardcode = request.POST.get('cardcode')
+        #data encryption
+        number = str(cardnumber)
+        code = str(cardcode)
+        en_number = Authetic(number)
+        en_code = Authetic(code)
+
+        try:
+            transaction = transactions.objects.create(prod_id=prod_id, email=email, cardnum=str(Authetic.encrypt(en_number)), cardcode=str(Authetic.encrypt(en_code)))
+            arguments = {}
+            arguments['mnm'] = "Transaction successful"
+            return TemplateResponse(request, 'mainPage.html', arguments)
+        except IntegrityError as e:
+            arguments = {}
+            arguments['mnm'] = "Sorry there was an error"
+            return TemplateResponse(request, 'transactions2.html', arguments)
+    return render(request, "transactions2.html", {'products': product, 'users': user})
+
+def transaction3(request):
+    #building purposes
+    #email = request.session.get('email')
+    prod_id = request.session.get('prod_id')
+    email = 'sperako948@gmail.com'
+    prod_id = '003'
+    #transaction code
+    user = users.objects.filter(email=email)
+    product = products.objects.filter(id=prod_id)
+
+    if request.method == 'POST':
+        cardnumber = request.POST.get('cardnumber')
+        cardcode = request.POST.get('cardcode')
+        #data encryption
+        number = str(cardnumber)
+        code = str(cardcode)
+        en_number = Authetic(number)
+        en_code = Authetic(code)
+
+        try:
+            transaction = transactions.objects.create(prod_id=prod_id, email=email, cardnum=str(Authetic.encrypt(en_number)), cardcode=str(Authetic.encrypt(en_code)))
+            arguments = {}
+            arguments['mnm'] = "Transaction successful"
+            return TemplateResponse(request, 'mainPage.html', arguments)
+        except IntegrityError as e:
+            arguments = {}
+            arguments['mnm'] = "Sorry there was an error"
+            return TemplateResponse(request, 'transactions3.html.html', arguments)
+    return render(request, "transactions3.html", {'products': product, 'users': user})
 
 #for testing purposes of the 2factor system
 def twofa(request):

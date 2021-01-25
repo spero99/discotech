@@ -28,9 +28,12 @@
 
         {% endfor %}
 </table>
-    <h1>Buy Rysen 5 cpu </h1><input type="submit"  value="001" name="buy">Buy</input>
-    <h1>Buy RTX3090 gpu </h1><button id='002' value="001" name="buy">Buy</button>
-    <h1>Buy PS5console </h1><button id='003' value="001" name="buy">Buy</button>
+    <form method="POST">
+    {% csrf_token %}
+    <h1>Buy Rysen 5 cpu </h1><input type="submit" value="Buy CPU" name="001"></input>
+    <h1>Buy RTX3090 gpu </h1><input type="submit" value="Buy GPU" name="002"></input>
+    <h1>Buy PS5console </h1><input type="submit"  value="Buy PS5"  name="003"></input>
+    </form>
 {%  endblock content %}
 </body>
 </html>

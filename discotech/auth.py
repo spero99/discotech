@@ -4,8 +4,7 @@ import logging
 import traceback
 from django.conf import settings
 
-
-
+# handles the encryption and decryption of str for security purposes and safe storage of data
 class Authetic(object):
 
     def __init__(self, txt):

@@ -6,7 +6,7 @@ import smtplib
 from random import random, randint
 from email.message import EmailMessage
 
-
+#sends an email with a random 4 digit code to ensure safe acces to the user account
 def sendemail(email, code):
     EMAIL_ADDRESS = 'chimi7827@gmail.com'
     EMAIL_PASSWORD = 'chimichangaslovessiege'

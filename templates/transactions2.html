@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
 {% load static %}
 
 <html lang="en">
@@ -22,20 +31,19 @@
         <th>Price</th>
     </tr>
     {% for user in users %}
-    {% for product in products %}
+
         <tr>
 
             <td>{{ user.firstname }}</td>
             <td>{{ user.lastname }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.telephone }}</td>
-            <td>{{ product.id }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.brand}}</td>
-            <td>{{ product.price }}</td>
+            <td>002</td>
+            <td>RTX 3090 GPU</td>
+            <td>NVIDIA</td>
+            <td>1200</td>
         </tr>
 
-{% endfor %}
 {% endfor %}
 </tb>
 </table>

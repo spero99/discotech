@@ -15,13 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import mainpage, login, register, proionta, transaction, twofa
+from .views import mainpage, login, register, proionta, transaction, twofa, transaction2, transaction3
 
+#handles the paths of the site and calls the functions that are need for each page
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register', register),
     path('proionta', proionta),
-    path('transaction', transaction),
+    path('transaction1', transaction),
+    path('transaction2', transaction2),
+    path('transaction3', transaction3),
     path('login', login),
     path('2fa', twofa),
     path('', mainpage)
